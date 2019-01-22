@@ -63,4 +63,19 @@ final class Container implements ContainerInterface
     {
         return $this->baseContainer->has($id);
     }
+
+    /**
+     * @param  array $injectors
+     *
+     * @return \Psr\Container\ContainerInterface
+     */
+    public static function makeWithInjectors(array $injectors): ContainerInterface
+    {
+        $definitions = [];
+        foreach ($injectors as $injector) {
+            $definitions = array_merge(new $injector());
+        }
+
+        return new self($definitions);
+    }
 }
