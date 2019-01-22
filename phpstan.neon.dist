@@ -1,0 +1,11 @@
+includes:
+    - vendor/narration/phpstan-rules/rules.neon
+
+parameters:
+    ignoreErrors:
+    	- '#Constructor in Narration\\Container\\Container has parameter \$definitions with default value.#'
+    reportUnmatchedIgnoredErrors: false
+    level: max
+    paths:
+        - src
+        - tests
