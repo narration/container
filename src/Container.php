@@ -73,7 +73,7 @@ final class Container implements ContainerInterface
     {
         $definitions = [];
         foreach ($injectors as $injector) {
-            $definitions = array_merge(new $injector());
+            $definitions = array_merge((new $injector)());
         }
 
         return new self($definitions);
